@@ -1,0 +1,23 @@
+{
+  "name": "project01_mycar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DreTGiant/project01_mycar.git"
+  },
+  "author": "Andre Massey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DreTGiant/project01_mycar/issues"
+  },
+  "homepage": "https://github.com/DreTGiant/project01_mycar#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "hbs": "^4.0.0"
+  }
+}
