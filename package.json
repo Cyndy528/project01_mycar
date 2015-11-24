@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/DreTGiant/project01_mycar#readme",
   "dependencies": {
+    "dotenv": "^1.2.0",
     "express": "^4.13.3",
-    "hbs": "^4.0.0"
+    "hbs": "^4.0.0",
+    "nodemon": "^1.8.1"
   }
 }
