@@ -9,7 +9,11 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
 
-// Sign Up route
+// login route
+app.get('/profile', function(req, res) {
+	res.render('profile');
+});
+// login route
 app.get('/login', function(req, res) {
 	res.render('login');
 });
