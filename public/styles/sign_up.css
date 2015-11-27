@@ -1,0 +1,16 @@
+.nav-pills{
+	padding-top: 5px;
+	padding-left: 920px;
+}
+._container{
+	padding-top: 150px;
+	margin: 100px 100px;
+	background-color: grey;
+	border-radius: 25px;
+	opacity:0.9;
+}
+body{
+	background-image: url("city-cars-traffic-lights.jpg");
+	background-attachment: fixed;
+	background-size: 100% auto;
+}

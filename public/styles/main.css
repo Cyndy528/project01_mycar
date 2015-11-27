@@ -1,0 +1,10 @@
+body { 
+	padding-top: 70px;
+	 background-image: url("pexels-photo.jpg");
+    background-attachment: fixed;
+	background-size: 100% auto;
+}
+.nav-pills{
+	padding-top: 5px;
+	padding-left: 920px;
+}
