@@ -1,12 +1,42 @@
 var express = require('express'),
+	bodyParser = require('body-parser'),
+	mongoose = require('mongoose'),
+	car = require('./models/car'),
 	app = express();
 // require and load dotenv
 require('dotenv').load();
+
+var Car = require('./models/car');
 
 var exhbs = require('hbs');
 app.set('view engine', 'hbs');
 
 app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+mongoose.connect('mongodb://localhost/mycar');
+
+// Add car 
+app.post('/api/cars/', function(req,res){
+	var newCar = new Car(req.body);
+	newCar.save(function(err,savedCar){
+		res.json(newCar);
+	});
+});
+
+// Get ALl Cars 
+app.get('/api/cars/', function(req, res) {
+	//mongoose
+	Car.find(function(err, allCars) {
+		res.json({
+			car: allCars
+		});
+	});
+});
+
 
 
 // login route
