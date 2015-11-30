@@ -55,7 +55,7 @@ app.get('/sign_up', function(req, res) {
 	res.render('sign_up');
 });
 // Homepage route
-app.get('/index', function(req, res) {
+app.get('/', function(req, res) {
 	res.render('index');
 });
 
