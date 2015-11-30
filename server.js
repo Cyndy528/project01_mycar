@@ -17,7 +17,10 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-mongoose.connect('mongodb://localhost/mycar');
+mongoose.connect(
+	process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+	'mongodb://localhost/mycar');
 
 // Add car 
 app.post('/api/cars/', function(req,res){
