@@ -19,13 +19,13 @@ app.use(bodyParser.urlencoded({
 
 mongoose.connect(
 	process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
+	process.env.MONGOHQ_URL ||
 	'mongodb://localhost/mycar');
 
 // Add car 
-app.post('/api/cars/', function(req,res){
+app.post('/api/cars/', function(req, res) {
 	var newCar = new Car(req.body);
-	newCar.save(function(err,savedCar){
+	newCar.save(function(err, savedCar) {
 		res.json(newCar);
 	});
 });
