@@ -92,7 +92,7 @@ $(document).ready(function() {
 
 		var pickedModel = $carModel.val();
 
-		var modelUrl = 'https://api.edmunds.com/api/vehicle/v2/' + pickedMake + '/' + pickedModel + '/' + pickedYear + '?category=' + pickedCategory + '&view=full&fmt=json&api_key=zf95fn6tfxu9q6zezhb46cj';
+		var modelUrl = 'https://api.edmunds.com/api/vehicle/v2/' + pickedMake + '/' + pickedModel + '/' + pickedYear + '?category=' + pickedCategory + '&view=full&fmt=json&api_key=szf95fn6tfxu9q6zezhb46cj';
 
 		$.get(modelUrl, function(data) {
 			var styleResults = data.styles;
