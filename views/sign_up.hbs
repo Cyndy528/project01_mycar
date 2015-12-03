@@ -8,70 +8,54 @@
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- custom styles -->
     <link rel="stylesheet" type="text/css" href="styles/sign_up.css">
-    <title>MyCar Sign Up</title>
+
+        <title>MyCar Sign Up</title>
   </head>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <ul class="nav nav-pills">
-        <li role="presentation"><a href="index">Home</a></li>
+        <li role="presentation"><a href="/">Home</a></li>
         <li role="presentation" class="active"><a href="sign_up">Sign Up</a></li>
         <li role="presentation"><a href="login">Login</a></li>
       </ul>
     </div>
   </nav>
   <body>
-    <div class="_container">
+ <div class="_container">
       <div class="row">
-        <form id="sign_up">
+        <form method="POST" action="/sign_up" id="sign_up">
           <div class="col-md-3"></div>
           <div class="col-md-3">
             <div class="form-group">
-              <input class="form-control" id="first_name" placeholder="First Name"autofocus>
+              <input class="form-control" id="username" name="username"placeholder="Name" autofocus >
             </div>
           </div>
           <div class="col-md-3">
-            <div class="form-group">
-              <input class="form-control" id="last_name" placeholder="Last Name">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <input type="text" class="form-control" placeholder="Email">
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-3">
-            <div class="form-group">
+           <div class="form-group">
               <label class="sr-only" for="exampleInputPassword3">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Password">
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="form-group">
-              <label class="sr-only" for="exampleInputPassword3">Password</label>
-              <input type="password" class="form-control" id="password" placeholder="Retype Password">
+              <input type="password" class="form-control" id="password" name="password"placeholder="Password"  minlength="6">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <div class="form-group">
-              <input type="submit" class="btn btn-block btn-primary" value="Submit">
+              <input type="submit" class="btn btn-block btn-primary" value="Sign Up">
             </div>
           </div>
         </div>
-      </form>
+      </div>
+    </form>
       <!-- jquery -->
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+      
       <!-- bootstrap js -->
       <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <!-- handlebars -->
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
       <!-- custom script -->
-      <script type="text/javascript" src="scripts/main.js"></script>
+     <!--  // <script type="text/javascript" src="scripts/main.js"></script> -->
+      <!-- Validate script -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+      <!-- custom script -->
+      <script type="text/javascript" src="scripts/validate.js"></script>
     </body>
   </html>

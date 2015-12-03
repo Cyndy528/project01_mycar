@@ -10,89 +10,218 @@
     <link rel="stylesheet" type="text/css" href="styles/profile.css">
     <title>MyCar</title>
   </head>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="row">
-      <form id="add_car">
-        <div class="col-md-1">
-          <div class='form-group'>
-            <select class="form-control" id="car_year" name="year">
-              <option>Year</option>
-              <option>2015</option>
-              <option>2014</option>
-              <option>2013</option>
-              <option>2012</option>
-            </select>
-          </div>
+  <nav class="navbar navbar-default navbar-fixed-top" role='navigation'>
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li class="username1"><p>Hello,{{user.username}}</p></li>
+        <li role="presentation" class="active"><a href="profile">Home</a></li>
+        <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Add Car</a></li>
+        <!--  <li role="presentation"><a href="XXXXXX">True Maket Value</a></li> -->
+        <li role="presentation"><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<body>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add New Car</h4>
         </div>
-        <div class="col-md-2">
-          <div class='form-group'>
-            <select class="form-control" id="car_make" name="make">
-              <option>Make</option>
-              <option>Chevy</option>
-              <option>Buick</option>
-              <option>Ford</option>
-              <option>Toyota</option>
-            </select>
+        <div class="modal-body">
+          <div class="row">
+            <form id="add_car">
+              <div class="col-md-4">
+                <div class='form-group'>
+                  <select required class="form-control" id="car_year" name="year">
+                    <option value="">Year</option>
+                    <option>2015</option>
+                    <option>2014</option>
+                    <option>2013</option>
+                    <option>2012</option>
+                    <option>2011</option>
+                    <option>2010</option>
+                    <option>2009</option>
+                    <option>2008</option>
+                    <option>2007</option>
+                    <option>2006</option>
+                    <option>2005</option>
+                    <option>2004</option>
+                    <option>2003</option>
+                    <option>2002</option>
+                    <option>2001</option>
+                    <option>2000</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class='form-group'>
+                  <select required class="form-control" id="car_category" name="category">
+                    <option value="">Category</option>
+                    <option>Sedan</option>
+                    <option>Coupe</option>
+                    <option>4dr SUV</option>
+                    <option>Concertible</option>
+                    <option>2dr Hatchback</option>
+                    <option>Regular Cab Pickup</option>
+                    <option>Extended Cab Pickup</option>
+                    <option>Crew Cab Pickup</option>
+                    <option>Cargo Van</option>
+                    <option>Passenger Van</option>
+                    <option>Passenger Minivan</option>
+                    <option>4dr Hatchback</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class='form-group'>
+                  <select required class="form-control" id="car_make" name="make">
+                    <option value="">Make</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class='form-group'>
+                  <select require class="form-control" id="car_model" name="model">
+                    <option value="">Model</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class='form-group'>
+                  <select required class="form-control" id="car_style" name="style">
+                    <option value="">style</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-block btn-primary" value="Add Car">
+                </div>
+              </div>
+            </form>
           </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
-        <div class="col-md-2">
-          <div class='form-group'>
-            <select class="form-control" id="car_model" name="model">
-              <option>Model</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-1">
-          <div class="form-group">
-            <input type="submit" class="btn btn-block btn-primary" value="Add Car">
-          </div>
-        </div>
-      </form>
-      <div class="container">
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="profile">Home</a></li>
-          <li role="presentation"><a href="XXXXXXX">Maintanence</a></li>
-          <li role="presentation"><a href="XXXXXX">Receipts</a></li>
-          <li role="presentation"><a href="XXXXXX">Logout</a></li>
-        </ul>
       </div>
     </div>
-  </nav>
-  <br>
-  <br>
-  <br>
-  <br>
-  <body>
+  </div>
+  <div id="mainModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Maintenance</h4>
+        </div>
+        <div class="modal-body">
+          <form id='maintForm'>
+            <div class='row'>
+              <div class="col-md-3">
+                <div class='form-group'>
+                  <select required class="form-control" id="car_maint" name="type">
+                    <option value="">Type</option>
+                    <option>Repair</option>
+                    <option>Replacement</option>
+                    <option>Routine Maintenance</option>
+                  </select>
+                </div>
+              </div>
+              <div class= 'col-md-4'>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="part"placeholder="Part">
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class="col-md-9">
+                <textarea type="text"class="form-control" rows="3" placeholder="Notes" name="maintenance"></textarea>
+              </div>
+            </div>
+            <br>
+            <div class='row'>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="submit" class="btn btn-block btn-primary" value="Add Record">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="Maintmodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Maintenance</h4>
+        </div>
+        <div class="modal-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#maintenance" aria-controls="home" role="tab" data-toggle="tab" data-target="#maintenance">Maintenance</a></li>
+              <li role="presentation"><a href="#recommended_maintenance" aria-controls="profile" role="tab" data-toggle="tab" data-target="#recommened_maintenance">Recommened Maintenance</a></li>
+          </ul>
+          <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="maintenance">
+    <div id="maint-list">
+     
+    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="recommened_maintenance">Api Infor Here!</div>
+  </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="car-list">
+    <script id="car-template" type="text/x-handlebars-template">
+    \{{#each car}}
     
-    <div id="car-list">
-      <script id="car-template" type="text/x-handlebars-template">
-      \{{#each car}}
-      
-      
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="http://media.caranddriver.com/images/media/638444/ec2015-small-cars-photo-641096-s-original.jpg" alt="...">
-          <div class="caption">
-            <h3>\{{year}} \{{make}} \{{model}}</h3>
-            <p>Vehicle specs here</p>
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-          </div>
+    
+    <div class="col-sm-6 col-md-4">
+      <div class="car" data-id="\{{_id}}">
+        <a href="javascript:void(0)" class="btn btn-default btn-sm delete-car" data-dismiss="alert">
+          <span class="glyphicon glyphicon-remove-circle"></span> Remove
+        </a>
+        <img src="http://media.caranddriver.com/images/media/638444/ec2015-small-cars-photo-641096-s-original.jpg" alt="...">
+        <div class="caption">
+          <h3>\{{year}} \{{make}} \{{model}}</h3>
+          <p>\{{style}}</p>
+          <p><a href="#" class="btn btn-primary" data-toggle='modal' data-target='#mainModal' role="button">Add Maint.</a> <a href="#" class="btn btn-default" id="MRecord" data-id="\{{_id}}"data-toggle="modal" data-target="#Maintmodal"role="button">Maintenance Records</a></p>
         </div>
       </div>
-      \{{/each}}
-      </script>
     </div>
-    <!-- jquery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <!-- bootstrap js -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- handlebars -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
-    <!-- custom script -->
-    <script type="text/javascript" src="scripts/main.js"></script>
-  </body>
+    \{{/each}}
+    </script>
+  </div>
+  <!-- jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- handlebars -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  <!-- custom script -->
+  <script type="text/javascript" src="scripts/main.js"></script>
+</body>
 </html>

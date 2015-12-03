@@ -4,8 +4,11 @@ var mongoose = require('mongoose'),
 var CarSchema = new Schema({
   year: String,
   make: String,
-  model: String
+  model: String,
+  style: String,
+  maintenance: [{type:Schema.Types.ObjectId, ref: 'maintenance'}]
 });
+
 
 var Car = mongoose.model('Car', CarSchema);
 
