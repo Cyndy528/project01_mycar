@@ -6,8 +6,6 @@ $(document).ready(function() {
 
 	var template = Handlebars.compile(source);
 
-	var Key = process.env.MyCarId;
-
 	// var maintSource = $('#maint-template').html();
 
 	// var maintTemp = Handlebars.compile(maintSource);
@@ -94,7 +92,7 @@ $(document).ready(function() {
 
 		var pickedModel = $carModel.val();
 
-		var modelUrl = 'https://api.edmunds.com/api/vehicle/v2/' + pickedMake + '/' + pickedModel + '/' + pickedYear + '?category=' + pickedCategory + '&view=full&fmt=json&api_key='+Key;
+		var modelUrl = 'https://api.edmunds.com/api/vehicle/v2/' + pickedMake + '/' + pickedModel + '/' + pickedYear + '?category=' + pickedCategory + '&view=full&fmt=json&api_key=zf95fn6tfxu9q6zezhb46cj';
 
 		$.get(modelUrl, function(data) {
 			var styleResults = data.styles;
