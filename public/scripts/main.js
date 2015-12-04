@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	console.log('Ready');
 
-
 	var source = $('#car-template').html();
 
 	var template = Handlebars.compile(source);
@@ -14,7 +13,7 @@ $(document).ready(function() {
 
 	var maintUrl = '/api/cars';
 
-	var allMaint =[];
+	var allMaint = [];
 
 	var allCars = [];
 
@@ -46,13 +45,18 @@ $(document).ready(function() {
 	$('#car-list').append(carsHtml);
 
 	var render = function() {
-		// empty existing todos from view
-		$carList.empty();
+		// empty existing cars from view
+	$carList.empty();
+
+	$.get(baseUrl, function(data) {
+		allCars = data.car;
+		// console.log(data.car);
+
 		var carsHtml = template({
-			cars: allCars
+			car: allCars
 		});
-		// append html to the view
 		$carList.append(carsHtml);
+	});
 	}
 
 	var makeUrl = 'https://api.edmunds.com/api/vehicle/v2/makes?state=used&year=2014&view=basic&fmt=json&api_key=szf95fn6tfxu9q6zezhb46cj';
@@ -96,7 +100,7 @@ $(document).ready(function() {
 
 		$.get(modelUrl, function(data) {
 			var styleResults = data.styles;
-			console.log(styleResults);
+			// console.log(styleResults);
 			var stylelength = styleResults.length;
 			for (var i = 0; i < stylelength; i++) {
 				$('#car_style').append('<option>' + styleResults[i].name + '</option>');
@@ -124,7 +128,7 @@ $(document).ready(function() {
 
 		$.get(modelUrl, function(data) {
 			var modelResults = data.models;
-			console.log(modelResults);
+			// console.log(modelResults);
 			var modellength = modelResults.length;
 			for (var i = 0; i < modellength; i++) {
 				$('#car_model').append('<option>' + modelResults[i].name + '</option>')
@@ -202,35 +206,65 @@ $(document).ready(function() {
 	// });
 
 	// add maintenance 2.0
-	$maintForm.on('submit',function(event){
-		event.preventDefault();
-		// var CarId = $('.car').attr('data-id');
-	 	var maintInfo = $(this).serialize();
-	 	var CarId = $('.car').attr('data-id');
+	// $maintForm.on('submit',function(event){
+	// 	event.preventDefault();
+	// 	// var CarId = $('.car').attr('data-id');
+	//  	var maintInfo = $(this).serialize();
+	//  	var CarId = $('#maintForm').closest('#add_rec').attr('data-id');
+	//  	console.log(CarId); 
 
-	 	$.post('/api/cars/'+CarId+'/maintenance', maintInfo, function(data){
-	 		console.log(data)
-	 		 // allMaint.push(data);
-	 		maintenance.push(maintInfo);
-	 		allMaint.push(data);
-	 	});
+	//  	// $.post('/api/cars/'+CarId+'/maintenance', maintInfo, function(data){
+	//  	// 	console.log(data)
+	//  	// 	 // allMaint.push(data);
+	//  	// 	maintenance.push(maintInfo);
+	//  	// 	allMaint.push(data);
+	//  	// 	$('#mainModal').modal('hide');
+	//  	// });
+
+	// });
+
+	// add maintenance 3.0
+	$('body').on('click', '#add_rec', function(event) {
+		// $('#mainModal').modal('show');
+		// $('#maintForm').reset();
+		event.preventDefault();
+		var carID = $(this).closest('#add_rec').attr('data-id');
+		console.log(carID);
+
+		$maintForm.on('submit', function(event) {
+			event.preventDefault();
+			var maintInfo = $maintForm.serialize();
+			console.log(maintInfo);
+
+			$.post('/api/cars/' + carID + '/maintenance', maintInfo, function(data) {
+				// console.log(data);
+				allMaint.push(data);
+			 	maintenance.push(maintInfo);
+			 	console.log(maintInfo);
+			 	$maintForm[0].reset();
+				$('#mainModal').modal('hide');
+			});
+		});
 
 	});
 
+
 	//Get all maintenance 
 
-	$('body').on('click','#MRecord',function(event){
+	$('body').on('click', '#MRecord', function(event) {
 		event.preventDefault();
 		$('#maint-list').empty();
+
 		var maintenanceID = $(this).attr('data-id');
 		console.log(maintenanceID);
 
-		$.get(baseUrl+'/'+maintenanceID, function(data){
-			console.log(data);
+		$.get(baseUrl + '/' + maintenanceID, function(data) {
+			// console.log(data);
 			var maintResults = data;
-			for(var i = 0; i < maintResults.length; i++){
-				console.log(maintResults[i]);
-			  $("#maint-list").append('<p>'+maintResults[i].maintenance+'</p>');
+			for (var i = 0; i < maintResults.length; i++) {
+				// console.log(maintResults[i]);
+				$("#maint-list").append('<p>'+maintResults[i].date+'</p>'+'<p>' + maintResults[i].type + '</p>'
+					+'<p>'+maintResults[i].maintenance+'</p>'+'<br>');
 			}
 		});
 	});
@@ -238,11 +272,12 @@ $(document).ready(function() {
 
 	// Add New Car
 	$add_car.on('submit', function(event) {
+		$('#car-list').empty();
 		event.preventDefault();
 		var newCar = $(this).serialize();
 
 		$.post(baseUrl, newCar, function(data) {
-			console.log(data);
+			// console.log(data);
 			allCars.push(data);
 			$carList.append(template({
 				car: allCars
@@ -254,25 +289,20 @@ $(document).ready(function() {
 		$('#car_model').append('<option>' + 'Model' + '</option>');
 		$('#myModal').modal('hide');
 
-		$add_car.reset();
-
-		render();
+		// render();
+		// $add_car.reset();
 	});
-
 
 
 
 	// GET all cars on page load
 	$.get(baseUrl, function(data) {
 		allCars = data.car;
-		console.log(data.car);
+		// console.log(data.car);
 
 		var carsHtml = template({
 			car: allCars
 		});
 		$carList.append(carsHtml);
 	});
-
-
-
 });

@@ -149,6 +149,7 @@ app.get('/api/cars/', function(req, res) {
 	Car.find(function(err, allCars) {
 		res.json({
 			car: allCars
+			,user:req.user
 		});
 	});
 });
