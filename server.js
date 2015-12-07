@@ -10,7 +10,7 @@ var express = require('express'),
 	LocalStrategy = require('passport-local').Strategy;
 
 // require and load dotenv
-require('dotenv').load();
+// require('dotenv').load();
 
 var User = require('./models/user');
 
@@ -22,7 +22,7 @@ var exhbs = require('hbs');
 
 app.set('view engine', 'hbs');
 
-process.env.MyCarID;
+// process.env.MyCarID;
 
 
 // middleware for auth

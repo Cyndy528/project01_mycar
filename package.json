@@ -25,7 +25,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.12.1",
     "hbs": "^4.0.0",
-    "mongoose": "^4.2.8",
+    "mongoose": "^4.2.9",
     "nodemon": "^1.8.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
